@@ -37,7 +37,7 @@
 
             //제이쿼리를 이용한 과목선택 유효성 검사
             $('#subjectChk').on('click',function(){
-                let subjects=$("input[name='subject']:checked");
+                let subjects=$("input[name='subject']:checked"); //다음부터는 class 속성 추가해서 값 가져올 것
                 let subjectCnt = subjects.length;
 
                 if(subjectCnt >= 2 && subjectCnt <= 3){
