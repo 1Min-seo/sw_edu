@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" name="person_info" method="post">
+        <table border="1" bordercolor="black">
+            <div class="container">
+                <tr>
+                    <td colspan="4" align="center">회원가입 양식</td>
+                </tr>
+                <tr align="center">
+                    <td width="150">구분</td>
+                    <td width="300">데이터 입력</td>
+                    <td width="150">유효성 검사</td>
+                    <td width="150">비고</td>
+                </tr>
+                <tr>
+                    <td>아이디</td>
+                    <td>
+                        <input type="text" name="user_ID">
+                        <input type="button" name="user_IDchk" value="아이디 확인">
+                    </td>
+                    <td>8자리, 첫글자 영문 소문자</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td>
+                        <input type="password" name="user_pwd">
+                    </td>
+                    <td>비밀번호 일치</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>비밀번호 확인</td>
+                    <td>
+                        <input type="password" name="user_pwd_chk">
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>성별</td>
+                    <td>
+                        <input type="radio" name="gender" value="male" />남
+                        <input type="radio" name="gender" value="female" checked/>여
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>관심분야</td>
+                    <td>
+                        <input type="checkbox" name="subject1" value="문학" />문학
+                        <input type="checkbox" name="subject2" value="어학" />어학
+                        <input type="checkbox" name="subject3" value="정보IT" />정보IT
+                        <br>
+                        <input type="checkbox" name="subject4" value="과학" />과학
+                        <input type="checkbox" name="subject5" value="수학" />수학
+                        <input type="checkbox" name="subject6" value="예술" />예술
+                    </td>
+                    <td>2~3개 사이 선택</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>자기소개</td>
+                    <td>
+                        <textarea name="self" rows="5" cols="30"></textarea>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td colspan="4">
+                        <input type="submit" value="가입">
+                        <input type="reset">
+                    </td>   
+                </tr>
+            </div>
+        </table>
+        
+
+    </form>
+</body>
+</html>
