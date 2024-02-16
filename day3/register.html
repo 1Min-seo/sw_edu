@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+       
+        $(document).ready(function(){
+            //alert('ready!!!');
+
+             // 제이쿼리를 이용한 아이디 유효성 검사
+            $('#userIdChk').on('click',function(){
+                //alert('click');
+                let id=$('#userId').val();
+                if(id.length>=8 && isLowerFirstLetter(id)){
+                    alert('아이디 확인이 되었습니다.');
+                    console.log(id);
+                }else{
+                    alert('아이디 형식이 일치하지 않습니다.');
+                    $('#userId').val('');
+                }
+            });
+
+            
+
+            //제이쿼리를 이용한 비밀번호 유효성 검사
+            $('#userPwChk').on('mouseleave',function(){
+                let pw=$('#userPw').val();
+                let pwChk=$('#userPwChk').val();
+
+                if(pw!=pwChk){
+                    alert('비밀번호가 일치하지 않습니다.');
+                }
+            })
+
+            //제이쿼리를 이용한 과목선택 유효성 검사
+            $('#subjectChk').on('click',function(){
+                let subjects=$("input[name='subject']:checked");
+                let subjectCnt = subjects.length;
+
+                if(subjectCnt >= 2 && subjectCnt <= 3){
+                    alert("과목 확인이 되었습니다.");
+                    console.log(subjectCnt);
+                } else {
+                    alert("과목을 2~3개 선택해주세요");
+                }
+            });
+        });
+    </script>
+    <script>
+        //아이디 유효성 검사
+        /*
+        function idChk(){
+            let id=document.getElementById('userId').value;
+            if(id.length>=8 && isLowerFirstLetter(id)){
+                alert('아이디 확인이 되었습니다.');
+                console.log(id);
+            }else{
+                alert('아이디 형식이 일치하지 않습니다.');
+                clear();
+            }
+          
+            return true;
+        }
+*/
+        function isLowerFirstLetter(str){
+            return str.charAt(0) === str.charAt(0).toLowerCase();
+        }
+        function clear(){
+            document.getElementById('userId').value='';
+        }
+
+        //비밀번호 유효성 검사
+        /*
+        function pwChk(){
+            let pw=document.getElementById('userPw').value;
+            let pwChk=document.getElementById('userPwChk').value;
+
+            if(pw!=pwChk){
+                alert('비밀번호가 일치하지 않습니다.');
+            }
+
+        }
+        */
+        //관심분야 유효성 검사
+        /*
+        function subjectChk(){
+            let subjects=document.getElementsByName("subject");
+            let subjectCnt=0;
+
+            for(let i=0; i<subjects.length; i++){
+                if(subjects[i].checked){
+                    subjectCnt++;
+                }
+            }
+
+            if(subjectCnt>=2 && subjectCnt<=3){
+                alert("과목 확인이 되었습니다.");
+                console.log(subjectCnt)
+            }else{
+                alert("과목을 2~3개 선택해주세요");
+            }
+        }
+        */
+    </script>
+</head>
+<body>
+    <form action="#" name="person_info" method="post">
+        <table border="1" bordercolor="black">
+            <div class="container">
+                <tr>
+                    <td colspan="4" align="center">회원가입 양식</td>
+                </tr>
+                <tr align="center">
+                    <td width="150">구분</td>
+                    <td width="300">데이터 입력</td>
+                    <td width="150">유효성 검사</td>
+                    <td width="150">비고</td>
+                </tr>
+                <tr>
+                    <td>아이디</td>
+                    <td>
+                        <input type="text" name="user_ID" id="userId">
+                        <input type="button" id="userIdChk" value="아이디 확인" onclick=" return idChk()">
+                    </td>
+                    <td>8자리, 첫글자 영문 소문자</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td>
+                        <input type="password" name="user_pwd" id="userPw">
+                    </td>
+                    <td>비밀번호 일치</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>비밀번호 확인</td>
+                    <td>
+                        <input type="password" name="user_pwd_chk" id="userPwChk" onblur="pwChk()">
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>성별</td>
+                    <td>
+                        <input type="radio" name="gender" value="male" />남
+                        <input type="radio" name="gender" value="female" checked/>여
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>관심분야</td>
+                    <td>
+                        <input type="checkbox" name="subject" value="0" />문학
+                        <input type="checkbox" name="subject" value="1" />어학
+                        <input type="checkbox" name="subject" value="2" />정보IT
+                        <br>
+                        <input type="checkbox" name="subject" value="3" />과학
+                        <input type="checkbox" name="subject" value="4" />수학
+                        <input type="checkbox" name="subject" value="5" />예술
+   
+                       
+                    </td>
+                    <td>2~3개 사이 선택</td>
+                    <td align="center">
+                        <!--
+                            <input type="button" name="subjectChk" value="과목 확인" onclick="subjectChk()">
+                        -->
+                        <input type="button" name="subjectChk" value="과목 확인" id="subjectChk">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>자기소개</td>
+                    <td>
+                        <textarea name="self" rows="5" cols="30"></textarea>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <input type="submit" value="가입">
+                        <input type="reset">
+                    </td>   
+                </tr>
+            </div>
+        </table>
+    </form>
+</body>
+</html>
