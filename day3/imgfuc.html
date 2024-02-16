@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+            height:300px;
+        }
+    </style>
+    <script>
+        function func1(){
+            let ele=document.getElementById('show');
+            ele.innerHTML="<img src=/day3/img/cloud.png />"
+        }
+
+        function func2(){
+            let ele=document.getElementById('show');
+            ele.innerHTML="<img src=/day3/img/coffee.png />"
+        }
+
+        function func3(){
+            let ele=document.getElementById('show');
+            ele.innerHTML="<img src=/day3/img/puppy.jpg />"
+        }
+
+        function func4(){
+            alert('b');
+            let ele=document.getElementById('image');
+            ele.setAttribute('src','/day3/img/puppy.jpg' )
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" value="btn1" onclick="func1()">
+    <input type="button" value="btn2" onclick="func2()">
+    <input type="button" value="btn3" onclick="func3()">
+    
+    <div id="show"></div>
+    <img src="" alt="test" id="image" onclick="func4()">
+</body>
+</html>
