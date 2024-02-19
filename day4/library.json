@@ -15,6 +15,7 @@
                 {"bookSeq":"3", "bookIsbn":"PM0000037903", "bookTitle":"슬픈 세상의 기쁜 말 : 당신을 살아 있게 하는 말은 무엇입니까", "bookAuthor":"정혜윤 지음", "userId":"user1", "borrowStart":"2023-06-01", "borrowEnd":"2023-06-14", "returnDate":"-"}
             ]
         },
+        
     "userInfo":
         {
             "user":[{"userId":"user1", "userState":"대출정지", "stopDate":"2023-06-18", "totalUsingBook":"3", "returnedBook":"1", "notReturnedBook":"1", "expectingReturnBook":"1", "availableBook":"1"}
