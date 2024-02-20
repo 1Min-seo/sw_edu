@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        table, td, th {
+            border : 1px solid black;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        td {
+            width: 150px;
+            height: 50px;
+            padding: 5px;
+            font-size: 20px;
+            /* text-align: center; */
+        }
+
+        input , select {
+            font-size: 20px;
+        }
+        .data_ui {
+            /* width: 250px; */
+            height: 50px;
+        }
+
+        button {
+            font-size: 15px;
+            margin: 5px;
+        }
+        
+        
+        #center {
+        	text-align: center;
+        }
+        
+        input.poster :disabled {
+        	background: gray;
+        }
+        
+        #form {
+        	font-size: 30px;
+        }
+        
+        #message1, #message2, #message3 {
+        	color: red;
+        }
+    </style>
+     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+     <script>
+        $(document).ready(function(){
+            $('#btn_check_id').on('click',function(e){
+                e.preventDefault();
+
+                let id=$('#user_id').val();
+                let firstChar = id.charAt(0);
+                    let alpha = "abcdefghijklmnopqrstuvwxyz";
+                    let idx = alpha.indexOf(firstChar);
+                    if(idx < 0){
+                        $('#message1').html('첫글자는 영문소문자로 입력하세요.');
+                    }else if(id.length!=8){
+                        $('#message1').html('8자리로 입력하세요.');
+                }else{
+                    alert('아이디 확인이 되었습니다.');
+                    $('#message1').html(' ')
+                }
+            })
+           
+            $('#pwd2').on('blur',function(){
+                let pwd1=$('#pwd1').val();
+                let pwd2=$('#pwd2').val();
+
+                if(pwd1!=pwd2){
+                    $('#message2').html('비밀번호가 일치하지 않습니다.');
+                }else{
+                    $('#message2'),html(' ');
+                }
+            })
+
+            $('#user_name').on('blur',function(){
+                let name=$('#user_name').val();
+                if(name=' '){
+                    $('#message3').html('이름은 필수로 입력해야합니다.');
+                }
+                
+            })
+
+            $('.year').on('blur',function(){
+                let year=$('#year').val();
+                if(year<1900 || year>2050){
+                    alert('년도는 1900년부터 2050년 사이로 입력하세요.');
+                }
+                
+            })
+            $('.month').on('blur',function(){
+                let month=$('#month').val();
+                if(month<1 || month>12 ){
+                    alert('월은 1월부터 12일 사이로 입력하세요.')
+                }
+            })
+            $('#find_postcode').on('click',function(){
+                alert('postcode check');
+                
+            })
+
+            $('').on('click',function(){
+                alert('postcode check');
+            })
+
+            
+        });
+
+    </script>             
+</head>
+<body>
+<form action="" method="post">
+    <table>
+        <tr><th colspan="5" id="form">회원가입양식</th></tr>
+        <tr><th>구분</th><th class="data_ui" colspan="2">데이터입력</th><th>유효성검사</th><th>비고</th></tr>
+        <tr>
+            <td>아이디</td>
+            <td colspan="2">
+            	<input type="text" id="user_id" name="userId">
+            	<button id="btn_check_id">아이디확인</button>
+            </td>
+            <td>8자리 , 첫글자 영문소문자</td>
+            <td id="message1"></td>
+        </tr>
+        <tr>
+            <td id="pwd_check1">비밀번호</td>
+            <td colspan="2"> <input type="password" id="pwd1" name="pwd1"></td>
+            <td rowspan="2">비밀번호 일치</td>
+            <td rowspan="2" id="message2"></td>
+        </tr>
+        <tr>
+            <td id="pwd_check2">비번확인</td>
+            <td colspan="2"><input type="password" id="pwd2" name="pwd2"></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td colspan="2"><input type="text" id="user_name" name="userName"></td>
+            <td>필수입력</td>
+            <td id="message3"></td>
+        </tr>
+        <tr>
+            <td>우편번호</td>
+            <td colspan="2">
+                <input type="text" id="postal" disabled>
+                <button id="find_postcode" type="button">우편번호찾기</button>
+            </td>
+            <td rowspan="3">필수입력</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>주소1</td><td colspan="2"><input type="text" id="addr1" size="35" disabled></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>주소2</td>
+            <td colspan="2"><input type="text" id="addr2" size="35" disabled></td>
+            <td></td>
+        <tr>
+            <td>생년월일</td>
+            <td colspan="2">
+                <input type="text" placeholder="년도" size="5" class="year">-
+                <select class="month">
+                    <option>-- 월 --</option>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+                    <option value='6'>6</option>
+                    <option value='7'>7</option>
+                    <option value='8'>8</option>
+                    <option value='9'>9</option>
+                    <option value='10'>10</option>
+                    <option value='11'>11</option>
+                    <option value='12'>12</option>
+
+                </select>-
+               
+                <br><br>
+                <input type="text" class="year" placeholder="년도" size="5">-
+                <input type="text" class="month" placeholder="월" size="5">-
+                <input type="text" id="day" placeholder="일" size="5">
+            </td>
+            <td>년도는 1900~2050, 월은 1~12, 일은 1~31</td>
+            <td>2개중 하나 선택</td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td colspan="2">
+                <input type="radio" name="gender">남
+                <input type="radio" name="gender">여
+            </td><td>필수 선택</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>관심분야</td>
+            <td colspan="2">
+                <input type="checkbox" name="interests" value="0">문학
+                <input type="checkbox" name="interests" value="1">어학
+                <input type="checkbox" name="interests" value="2">정보IT<br>
+                <input type="checkbox" name="interests" value="3">과학
+                <input type="checkbox" name="interests" value="4">수학
+                <input type="checkbox" name="interests" value="5">예술
+            </td>
+            <td>2~3개 사이 선택</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>자기소개</td>
+            <td colspan="2">
+                <textarea cols="50" rows="5"></textarea>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>    
+        <tr>
+            <td colspan="5" id="center">
+                <input type="submit" value="가입"  id="sending">
+                <input type="reset">
+            </td>
+        </tr>
+    </table>
+</form>
+</body> 
+</html>
